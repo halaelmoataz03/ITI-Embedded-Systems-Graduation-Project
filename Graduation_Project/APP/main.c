@@ -32,25 +32,26 @@ int main() {
 	while (1) {
 
 		SaveData = MUSART_u8Receive();
-		if (SaveData == 'N') {	// turn on the lights
+		if (SaveData == 'A') {		// turn on the lights
 			MDIO_vSetPinVal(DIO_PORTA, DIO_PIN0, DIO_HIGH);
 
-		} else if (SaveData == 'F') {	// turn off the lights
+		} else if (SaveData == 'B') {	// turn off the lights
 			MDIO_vSetPinVal(DIO_PORTA, DIO_PIN0, DIO_LOW);
 
-		} else if (SaveData == 'O') {	// open the door
+		} else if (SaveData == 'C') {	// open the door
 			HDOOR_vOpen();
 
-		} else if (SaveData == 'C') {	// close the door
+		} else if (SaveData == 'D') {	// close the door
 			HDOOR_vOpen();
 
-		} else if (SaveData == '1') {	// fan, speed 1
+		} else if (SaveData == 'E') {	// fan, speed 1
 			MTIMERS_vSetCompareMatch(TIM_0, 127);
 
-		} else if (SaveData == '2') {	// fan, speed 2
+		} else if (SaveData == 'F') {	// fan, speed 2
 			MDIO_vSetPinVal(DIO_PORTB, DIO_PIN3, DIO_HIGH);
 		}
 
 	}
 	return 0;
 }
+
